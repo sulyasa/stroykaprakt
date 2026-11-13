@@ -978,7 +978,7 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field > label { font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
 .field > label .req { color: var(--red); }
-.field input,
+.field input:not([type="checkbox"]):not([type="radio"]),
 .field select,
 .field textarea {
     width: 100%;
@@ -1001,7 +1001,7 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
     padding-right: 40px;
 }
 .field textarea { min-height: 120px; resize: vertical; }
-.field input:focus,
+.field input:not([type="checkbox"]):not([type="radio"]):focus,
 .field select:focus,
 .field textarea:focus {
     border-color: var(--accent);
@@ -1011,10 +1011,42 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 .field__hint { font-size: 11.5px; color: var(--muted); }
 .field__error { font-size: 12px; color: var(--red); font-weight: 600; }
 .field--error input, .field--error select, .field--error textarea { border-color: var(--red); }
-.field--check { flex-direction: row; align-items: flex-start; gap: 10px; }
-.field--check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent-strong); flex-shrink: 0; }
-.field--check label { font-size: 12.5px; font-weight: 500; color: var(--muted); line-height: 1.5; }
-.field--check a { color: var(--ink); text-decoration: underline; }
+.field--check {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+.field--check input,
+.field--check input[type="checkbox"],
+.field input[type="checkbox"] {
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    accent-color: #d18a28 !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+}
+.field--check label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+}
+.field--check a {
+    color: var(--ink);
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
 
