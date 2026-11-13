@@ -1,7 +1,7 @@
 meta:
   environment: docker
   toolchain:
-    name: dockerfile
+    name: docker
 build:
   dockerfile: Dockerfile
 run:
